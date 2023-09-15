@@ -1,7 +1,7 @@
 Release -> Iniciando o projeto Tafeito
 Tarefas
 [ok] - Montar o projeto no github
-- Nós iniciar o projeto base com as bibliotecas essencias
+[ok] - Nós iniciar o projeto base com as bibliotecas essenciais
 - Nós vamos fazer a tela de login
 - Nós vamos conectar o login com o backend
 
