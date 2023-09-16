@@ -13,11 +13,12 @@ import TaskAlt from "@mui/icons-material/TaskAlt";
 import Logout from "@mui/icons-material/Logout";
 import { useNavigate } from 'react-router-dom';
 
+import { useAuth } from '../../provider/authProvider';
 
 const Tasks = () => {
 
   const navigate = useNavigate();
-
+  const { setToken } = useAuth();
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
     null
   );
@@ -32,7 +33,8 @@ const Tasks = () => {
 
   const logout = () => {
     setAnchorElUser(null);
-    navigate('/');
+    setToken(null);
+    navigate("/login", { replace: true });
   }
 
   return (
