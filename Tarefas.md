@@ -14,4 +14,4 @@ Tarefas
 
 [ok] - Realizar gestão do estado de logado ou não na aplicação
 
-Se possível, gostaria que vocês seguissem meus passos
+[ok] - Personalizar a barra de navegação com o nome do usuário
