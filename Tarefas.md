@@ -6,7 +6,12 @@ Tarefas
     - React Router
     - MUI (interface)
 [ok]- Fazer a tela de login
-- Conectar o login com o backend
+[ok]- Conectar o login com o backend
 
+
+[ok] - Realizar a navegação entre as telas de login para tela de tarefas
+- Realizar a navegação tela de tarefas e tele de login
+
+- Realizar gestão do estado de logado ou não na aplicação
 
 Se possível, gostaria que vocês seguissem meus passos
