@@ -15,3 +15,13 @@ Tarefas
 [ok] - Realizar gestão do estado de logado ou não na aplicação
 
 [ok] - Personalizar a barra de navegação com o nome do usuário
+
+
+PR - Create Tarefas
+[] - Criar interface de input
+[] - implementar fluxo de  sucesso
+[] - implementar fluxo de erro
+
+PR - Read Tarefas
+PR - Update Tarefas
+PR - Delete Tarefas
