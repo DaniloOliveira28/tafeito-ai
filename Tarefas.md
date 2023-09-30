@@ -35,3 +35,8 @@ PR - Update Tarefas
 PR - Delete Tarefas
 [x] - deletar a tarefa, usando um componente para confirmar a ação
 [x] - re-renderizar a lista
+
+PR - Controlar o status das tarefas
+[x] - atualizar a visualização para mostrar o status da tarefa
+[x] - permitir concluir a tarefa
+[x] - permitir reabrir a tarefa
