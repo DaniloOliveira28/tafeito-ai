@@ -18,9 +18,11 @@ Tarefas
 
 
 PR - Create Tarefas
-[] - Criar interface de input
-[] - implementar fluxo de  sucesso
-[] - implementar fluxo de erro
+[x] - Criar interface de input
+[x] - integrar dinamicamente a listagem de categorias e suas tarefas
+[x] - implementar fluxo de  sucesso
+[x] - implementar fluxo de erro
+[] - trabalhar o visual dos componentes
 
 PR - Read Tarefas
 PR - Update Tarefas
