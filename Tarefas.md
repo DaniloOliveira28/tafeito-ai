@@ -25,5 +25,8 @@ PR - Create Tarefas
 [x] - trabalhar o visual dos componentes
 
 PR - Read Tarefas
+[x] - recuperar tarefas criadas em cada categoria
+[x] - criar componente para visualizar as tarefas
+
 PR - Update Tarefas
 PR - Delete Tarefas

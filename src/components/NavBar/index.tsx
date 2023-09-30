@@ -1,5 +1,5 @@
 import * as React from "react";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -14,24 +14,23 @@ import TaskAlt from "@mui/icons-material/TaskAlt";
 import Logout from "@mui/icons-material/Logout";
 import axios from "axios";
 
-import {NavBarProps} from './NavBar';
+import { NavBarProps } from "./NavBar";
+import { url_usuarios_autenticado } from '../../utils/api';
 
-const NavBar = (props:NavBarProps) => {
-
+const NavBar = (props: NavBarProps) => {
   const { logout } = props;
 
-  const [userData, setUserData] = useState<null|{
-    nome:string;
-    login:string;
-    admin:boolean;
+  const [userData, setUserData] = useState<null | {
+    nome: string;
+    login: string;
+    admin: boolean;
   }>(null);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/usuarios/autenticado').then((response) => {
-      console.log('xxx', response.data)
-      setUserData(response.data.usuario)
-    })
-  }, [])
+    axios.get(url_usuarios_autenticado).then((response) => {
+      setUserData(response.data.usuario);
+    });
+  }, []);
 
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
     null
@@ -45,18 +44,21 @@ const NavBar = (props:NavBarProps) => {
     setAnchorElUser(null);
   };
 
-
-
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
-        <Toolbar disableGutters sx={{
-          justifyContent: 'space-between'
-        }}>
-          <Box sx={{
-            display: 'flex',
-            alignItems: 'center'
-          }}>
+        <Toolbar
+          disableGutters
+          sx={{
+            justifyContent: "space-between",
+          }}
+        >
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
             <TaskAlt sx={{ display: "flex", mr: 2 }} />
 
             <Typography
@@ -76,7 +78,9 @@ const NavBar = (props:NavBarProps) => {
             >
               TaFeito
             </Typography>
-            {userData ? <Typography> Bem vindo: {userData.nome}  </Typography> : null}
+            {userData ? (
+              <Typography> Bem vindo: {userData.nome} </Typography>
+            ) : null}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
