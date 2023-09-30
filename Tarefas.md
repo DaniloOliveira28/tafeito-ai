@@ -22,7 +22,7 @@ PR - Create Tarefas
 [x] - integrar dinamicamente a listagem de categorias e suas tarefas
 [x] - implementar fluxo de  sucesso
 [x] - implementar fluxo de erro
-[] - trabalhar o visual dos componentes
+[x] - trabalhar o visual dos componentes
 
 PR - Read Tarefas
 PR - Update Tarefas
