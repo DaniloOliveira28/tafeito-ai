@@ -68,9 +68,11 @@ const TaskListWrapper = (props: TaskListWrapperProps) => {
     setLoading(true);
     try {
       const response = await axios.get(url_tasks);
-      const category_tasks = response.data.filter(
-        (task: Tarefa) => task.id_categoria === categoria.id
-      );
+      const category_tasks = response.data
+        .filter((task: Tarefa) => task.id_categoria === categoria.id)
+        .sort((a:Tarefa, b:Tarefa) => {
+          return a.id - b.id;
+        });
       setTasks(category_tasks);
     } catch (err) {
       if (err instanceof Error) {

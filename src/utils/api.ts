@@ -6,3 +6,5 @@ export const url_login = `${base_api}/usuarios/login`;
 export const url_categorias = `${base_api}/categorias`; 
 export const url_tasks = `${base_api}/tarefas`; 
 export const url_update_task = `${base_api}/tarefas/:id`; 
+export const url_finish_task = `${base_api}/tarefas/:id/concluir`; 
+export const url_reopen_task = `${base_api}/tarefas/:id/reabrir`; 
