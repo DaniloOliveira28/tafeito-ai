@@ -8,4 +8,5 @@ export type TaskListWrapperProps = {
 
 export type TaskListProps = {
     tasks: Tarefa[]
+    categoria: Categoria;
 }
