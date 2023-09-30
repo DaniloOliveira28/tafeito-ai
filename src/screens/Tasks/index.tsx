@@ -3,6 +3,7 @@ import NavBar from '../../components/NavBar';
 import { useNavigate } from 'react-router-dom';
 
 import { useAuth } from '../../provider/authProvider';
+import Main from '../../components/Main';
 
 const Tasks = () => {
 
@@ -15,7 +16,10 @@ const Tasks = () => {
   }
 
   return (
-    <NavBar logout={logout} />
+    <>
+      <NavBar logout={logout} />
+      <Main />
+    </>
   );
 };
 
