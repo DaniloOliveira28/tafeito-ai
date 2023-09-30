@@ -1,6 +1,7 @@
 import { Box, CardActions, CardContent, Card } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
+import { SnackbarProvider, VariantType, useSnackbar } from "notistack";
 
 import Button from "@mui/material/Button";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
@@ -11,10 +12,13 @@ import { TaskInputProps } from "./TaskInput";
 
 const TaskInput = (props: TaskInputProps) => {
   const { onSelectCreateTask, category } = props;
+
   const [isOpen, setIsOpen] = useState(false);
   const [taskDescription, setTaskDescription] = useState<null | string>(null);
   const [response, setResponse] = useState(null);
-  const [error, setError] = useState<null|string>(null);
+  const [error, setError] = useState<null | string>(null);
+
+  const { enqueueSnackbar } = useSnackbar();
 
   const onClick = () => {
     onSelectCreateTask(category.descricao);
@@ -28,7 +32,6 @@ const TaskInput = (props: TaskInputProps) => {
   };
 
   const createTask = async () => {
-
     const payload = {
       // your post data goes here
       id_categoria: category.id,
@@ -41,18 +44,17 @@ const TaskInput = (props: TaskInputProps) => {
           "Content-Type": "application/json",
         },
       });
-
       setResponse(response.data);
       setError(null);
       setTaskDescription(null);
       onSelectCreateTask(null);
       setIsOpen(false);
+      enqueueSnackbar("Tarefa criada!", { variant: "success" });
     } catch (err) {
       setResponse(null);
       setError((err as Error).message);
+      enqueueSnackbar("Erro ao criar a tarefa.", { variant: "error" });
     }
-
-    
   };
 
   return (
