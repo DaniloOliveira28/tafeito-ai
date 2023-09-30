@@ -33,3 +33,5 @@ PR - Update Tarefas
 [x] - enviar atualização para o backend
 
 PR - Delete Tarefas
+[x] - deletar a tarefa, usando um componente para confirmar a ação
+[x] - re-renderizar a lista
