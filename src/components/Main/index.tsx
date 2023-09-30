@@ -24,7 +24,7 @@ const Main = (props: MainProps) => {
         <div>TODO: Listar Tarefas {categoria_item.descricao}</div>
         {selectedTaskInput === null || selectedTaskInput === categoria_item.descricao ? (
           <TaskInput
-            category={categoria_item.descricao}
+            category={categoria_item}
             onSelectCreateTask={(category) => {
               setSelectedTaskInput(category);
             }}
