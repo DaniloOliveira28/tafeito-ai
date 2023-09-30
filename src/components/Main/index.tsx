@@ -19,8 +19,11 @@ const Main = (props: MainProps) => {
 
   const renderCategoriaSection = (categoria_item: Categoria) => {
     return (
-      <CustomizedSectionBox key={categoria_item.id}>
-        <Typography variant="h2"> {categoria_item.descricao} </Typography>
+      <CustomizedSectionBox key={categoria_item.id} pt={2} pb={1}>
+        <Typography variant="h2" sx={{
+          fontSize: '2rem',
+          marginBottom: '8px'
+        }}> {categoria_item.descricao} </Typography>
         <div>TODO: Listar Tarefas {categoria_item.descricao}</div>
         {selectedTaskInput === null || selectedTaskInput === categoria_item.descricao ? (
           <TaskInput
@@ -39,11 +42,15 @@ const Main = (props: MainProps) => {
       display="flex"
       flexWrap={"wrap"}
       sx={{
-        margin: "8px 16px 24px 16px",
+        textAlign: 'center',
+        maxWidth: '720px',
+        margin: "0 auto",
       }}
     >
       <CustomizedSectionBox>
-        <Typography variant="h1"> Suas tarefas </Typography>
+        <Typography variant="h1" sx={{
+          fontSize: '3rem'
+        }}> Suas tarefas </Typography>
       </CustomizedSectionBox>
       {categorias.map((categoria) => renderCategoriaSection(categoria))}
     </Box>

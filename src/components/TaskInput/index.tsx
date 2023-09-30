@@ -4,7 +4,7 @@ import { useState } from "react";
 import { SnackbarProvider, VariantType, useSnackbar } from "notistack";
 
 import Button from "@mui/material/Button";
-import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import AddTaskIcon from '@mui/icons-material/AddTask';
 import axios from "axios";
 
 import { url_task } from "../../utils/api";
@@ -65,7 +65,7 @@ const TaskInput = (props: TaskInputProps) => {
             component="label"
             variant="contained"
             onClick={onClick}
-            startIcon={<CloudUploadIcon />}
+            startIcon={<AddTaskIcon />}
           >
             Adicionar Tarefa
           </Button>
@@ -75,14 +75,24 @@ const TaskInput = (props: TaskInputProps) => {
           <Card>
             <CardContent>
               <TextField
+                fullWidth
                 id="standard-basic"
-                label="Standard"
+                label="Qual é a sua tarefa?"
                 variant="standard"
+                size="small"
                 value={taskDescription}
                 onChange={(event) => setTaskDescription(event.target.value)}
               />
             </CardContent>
-            <CardActions>
+            <CardActions sx={{
+              alignSelf: "stretch",
+              display: "flex",
+              justifyContent: "flex-end",
+              alignItems: "flex-start",
+              // 👇 Edit padding to further adjust position
+              p: 2,
+            }}
+            >
               <Button
                 component="label"
                 variant="contained"
