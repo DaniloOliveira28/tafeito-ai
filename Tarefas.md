@@ -29,4 +29,7 @@ PR - Read Tarefas
 [x] - criar componente para visualizar as tarefas
 
 PR - Update Tarefas
+[x] - controlar o estado de atualização ou visualização
+[x] - enviar atualização para o backend
+
 PR - Delete Tarefas

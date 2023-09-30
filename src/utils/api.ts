@@ -5,3 +5,4 @@ export const url_usuarios_autenticado =  `${base_api}/usuarios/autenticado`
 export const url_login = `${base_api}/usuarios/login`; 
 export const url_categorias = `${base_api}/categorias`; 
 export const url_tasks = `${base_api}/tarefas`; 
+export const url_update_task = `${base_api}/tarefas/:id`; 

@@ -2,77 +2,49 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import Checkbox from "@mui/material/Checkbox";
-import IconButton from "@mui/material/IconButton";
-import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
+import Task from "../Task";
 import { TaskListWrapperProps, TaskListProps } from "./TaskList";
-
+import TaskInput from "../TaskInput";
 import { Tarefa } from "../../utils/model";
 
 import { url_tasks } from "../../utils/api";
 import { Box } from "@mui/material";
 
 import { usePreviousValue } from "../../utils/hooks";
+import { useGlobalContext } from "../../utils/global";
 
 const TaskList = (props: TaskListProps) => {
-  const { tasks } = props;
+  const { tasks, categoria } = props;
 
-  const [checked, setChecked] = useState([0]);
-
-  const handleToggle = (value: number) => () => {
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
-
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
-
-    setChecked(newChecked);
-  };
+  const [editTaskId, setEditTaskId] = useState<null | number>(null);
+  const { setIsEditingTask } = useGlobalContext();
 
   const renderTasks = () => {
     return tasks.map((task) => {
-      const labelId = `checkbox-list-label-${task.id}`;
-
       return (
-        <ListItem
-          key={task.id}
-          secondaryAction={
-            <Box>
-              <IconButton edge="end" aria-label="editar">
-                <EditIcon />
-              </IconButton>
-              <IconButton edge="end" aria-label="deletar">
-                <DeleteIcon />
-              </IconButton>
-            </Box>
-          }
-          disablePadding
-        >
-          <ListItemButton
-            role={undefined}
-            onClick={handleToggle(task.id)}
-            dense
-          >
-            <ListItemIcon>
-              <Checkbox
-                edge="start"
-                checked={checked.indexOf(task.id) !== -1}
-                tabIndex={-1}
-                disableRipple
-                inputProps={{ "aria-labelledby": labelId }}
-              />
-            </ListItemIcon>
-            <ListItemText id={labelId} primary={task.descricao} />
-          </ListItemButton>
-        </ListItem>
+        <Box key={task.id}>
+          {task.id === editTaskId ? (
+            <TaskInput
+              cancelTask={() => {
+                setEditTaskId(null);
+                setIsEditingTask(false);
+              }}
+              submitTask={() => {
+                setEditTaskId(null);
+                setIsEditingTask(false);
+              }}
+              category={categoria}
+              task={task}
+            />
+          ) : (
+            <Task
+              task={task}
+              onTaskChange={(taskId) => {
+                setEditTaskId(taskId);
+              }}
+            />
+          )}
+        </Box>
       );
     });
   };
@@ -124,7 +96,7 @@ const TaskListWrapper = (props: TaskListWrapperProps) => {
     }
   }, []);
 
-  return <TaskList tasks={tasks} />;
+  return <TaskList tasks={tasks} categoria={categoria} />;
 };
 
 export default TaskListWrapper;

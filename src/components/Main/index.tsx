@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import TaskInput from "../TaskInput";
+import TaskInputWrapper from "../TaskInputWrapper";
 
 import { CustomizedSectionBox } from "./styles";
 import { useEffect, useState } from "react";
@@ -9,16 +9,23 @@ import { url_categorias } from "../../utils/api";
 import { Categoria, Tarefa } from "../../utils/model";
 import TaskList from '../TaskList';
 import { MainProps } from "./Main";
+import { useGlobalContext } from '../../utils/global';
+
 
 const Main = (props: MainProps) => {
   const { categorias } = props;
 
-  const [selectedTaskInput, setSelectedTaskInput] = useState<string | null>(
-    null
-  );
-  const [refetchtaskStatus, setRefectchTaskStatus] = useState<number>(0);
+  const {
+    isEditingTask,
+    selectedTaskInput,
+    refetchtaskStatus
+  } = useGlobalContext()
 
+  
+  
   const renderCategoriaSection = (categoria_item: Categoria) => {
+    const showTaskInput = isEditingTask === false && (selectedTaskInput === null ||
+      selectedTaskInput === categoria_item.descricao);
     return (
       <CustomizedSectionBox key={categoria_item.id} pt={2} pb={1}>
         <Typography
@@ -34,14 +41,9 @@ const Main = (props: MainProps) => {
 
         <TaskList categoria={categoria_item} taskStatus={refetchtaskStatus}/>
 
-        {selectedTaskInput === null ||
-        selectedTaskInput === categoria_item.descricao ? (
-          <TaskInput
+        {showTaskInput ? (
+          <TaskInputWrapper
             category={categoria_item}
-            onSelectCreateTask={(category) => {
-              setSelectedTaskInput(category);
-              setRefectchTaskStatus(refetchtaskStatus+1);
-            }}
           />
         ) : null}
       </CustomizedSectionBox>
