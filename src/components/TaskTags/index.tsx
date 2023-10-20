@@ -65,7 +65,6 @@ const TaskTags = (props: TaskTagsProps) => {
           <Chip key={tag} label={tag} size="small" variant="outlined" />
         </Box>
       ))}
-
       {isAdding === false ? renderAddButton() : renderTextInput()}
     </Box>
   );
