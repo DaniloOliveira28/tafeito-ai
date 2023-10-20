@@ -3,9 +3,8 @@ import axios from "axios";
 import { Box } from "@mui/material";
 import { useState } from "react";
 import { format, formatDistance, formatRelative, subDays,parseISO } from 'date-fns'
-import Chip from '@mui/material/Chip';
 
-
+import TaskTags from "../TaskTags";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -112,14 +111,6 @@ const Task = (props: TaskProps) => {
     return;
   }
 
-  const renderTags = (tags:string[]) => {
-    return tags.map(tag => (
-      <Box px={1}>
-        <Chip key={tag} label={tag}  size="small" variant="outlined"/>
-      </Box>
-    ))
-  }
-
   return (
     <>
       <ListItem
@@ -165,9 +156,7 @@ const Task = (props: TaskProps) => {
 
         </ListItemButton>
       </ListItem>
-      <Box display={'flex'} px={1} pb={2}>
-        {renderTags(task.etiquetas)}
-      </Box>
+      <TaskTags task={task}/>
       <DeleteTaskDialog
         task={task}
         openedDialog={openedDialog}
