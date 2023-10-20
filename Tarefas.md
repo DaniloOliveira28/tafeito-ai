@@ -40,3 +40,12 @@ PR - Controlar o status das tarefas
 [x] - atualizar a visualização para mostrar o status da tarefa
 [x] - permitir concluir a tarefa
 [x] - permitir reabrir a tarefa
+
+PR - Implementar a gestão das etiquetas
+[x] - visualizar etiquetas nas tarefas
+[] - permitir adicionar etiquetas
+[] - permitir deletar etiquetas
+
+Possíveis PRs
+3) Integrar o chatgpt à nossa aplicação
+2) Implementar gestão de anexos
