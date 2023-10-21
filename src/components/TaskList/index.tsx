@@ -17,10 +17,12 @@ const TaskList = (props: TaskListProps) => {
   const { tasks, categoria } = props;
 
   const [editTaskId, setEditTaskId] = useState<null | number>(null);
-  const { setIsEditingTask } = useGlobalContext();
+  const { setIsEditingTask, softDeletedTasks } = useGlobalContext();
 
   const renderTasks = () => {
-    return tasks.map((task) => {
+    return tasks.filter(task => {
+      return softDeletedTasks.includes(task.id) === false
+    }).map((task) => {
       return (
         <Box key={task.id}>
           {task.id === editTaskId ? (
@@ -87,7 +89,6 @@ const TaskListWrapper = (props: TaskListWrapperProps) => {
 
   useEffect(() => {
     if (loading === false && prevTaskStatus !== taskStatus) {
-      console.log(taskStatus);
       fetchtasks();
     }
   }, [taskStatus]);

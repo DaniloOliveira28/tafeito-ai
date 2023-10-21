@@ -65,8 +65,6 @@ const Login = () => {
         }
       })
       .then(data => {
-        console.log('sucesso', JSON.stringify(data))
-        console.log(data)
         if(data.responseStatus === 422 && data.data?.mensagem) {
           setErrorMessage(data.data?.mensagem)
         } else if(data.responseStatus === 400) {

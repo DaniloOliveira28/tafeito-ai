@@ -1,7 +1,7 @@
 import { Box, Chip, IconButton, Tooltip, Input } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { useState } from "react";
-import { api } from '../../provider/customAxios';
+import { api } from "../../provider/customAxios";
 
 import { TaskTagsProps } from "./TaskTags";
 import { url_add_task_tag } from "../../utils/api";
@@ -59,7 +59,6 @@ const TaskTags = (props: TaskTagsProps) => {
 
   const checkKeyPressed = (e: any) => {
     if (e.keyCode == 13) {
-      console.log("ENTER", e.target.value);
       addTaskTag(e.target.value);
     }
     if (e.keyCode == 27) {
