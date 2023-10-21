@@ -9,3 +9,5 @@ export const url_update_task = `/tarefas/:id`;
 export const url_finish_task = `/tarefas/:id/concluir`; 
 export const url_reopen_task = `/tarefas/:id/reabrir`; 
 export const url_add_task_tag = `/tarefas/:id/etiquetas/:tag`; 
+export const url_estimate_task = `/tarefas/:id/estimar-textual`; 
+export const url_project_task = `/tarefas/planejar-projeto`; 
