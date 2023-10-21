@@ -51,5 +51,8 @@ PR - Integrar o chatgpt à nossa aplicação
 [x] - Adicionar o pop up para descrever o projeto e gerar tarefas a partir da descrição
 [x] - Fazer melhorias de ajustes de layout
 
+PR - Melhorar a experiência de deleção
+[] - Ao invés de usar um dialog para confirmaar, usar uma estrategia opt-out, ou seja, permitir o cliente desfazer a ação de deleção.
+
 Possíveis PRs
 2) Implementar gestão de anexos
