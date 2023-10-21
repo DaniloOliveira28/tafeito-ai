@@ -1,5 +1,3 @@
-import axios from "axios";
-
 import { Box } from "@mui/material";
 import { useState } from "react";
 import { format, formatDistance, formatRelative, subDays,parseISO } from 'date-fns'
@@ -18,6 +16,7 @@ import DeleteTaskDialog from "../DeleteTaskDialog";
 import { TaskProps } from "./Task";
 import { url_update_task, url_finish_task, url_reopen_task } from "../../utils/api";
 import { useSnackbar } from "notistack";
+import { api } from '../../provider/customAxios';
 
 const Task = (props: TaskProps) => {
   const { task, onTaskChange } = props;
@@ -37,11 +36,7 @@ const Task = (props: TaskProps) => {
     const taskId = task?.id ?? -1;
     const custom_task_url = url_finish_task.replace(":id", taskId.toString());
     try {
-      await axios.post(custom_task_url, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      await api.post(custom_task_url);
       setError(null);
       enqueueSnackbar("Tarefa concluída!", { variant: "success" });
       setRefectchTaskStatus(refetchtaskStatus + 1);
@@ -55,11 +50,7 @@ const Task = (props: TaskProps) => {
     const taskId = task?.id ?? -1;
     const custom_task_url = url_reopen_task.replace(":id", taskId.toString());
     try {
-      await axios.post(custom_task_url, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      await api.post(custom_task_url);
       setError(null);
       enqueueSnackbar("Tarefa reaberta!", { variant: "success" });
       setRefectchTaskStatus(refetchtaskStatus + 1);
@@ -90,11 +81,7 @@ const Task = (props: TaskProps) => {
     const taskId = task?.id ?? -1;
     const custom_task_url = url_update_task.replace(":id", taskId.toString());
     try {
-      await axios.delete(custom_task_url, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      await api.delete(custom_task_url);
       setError(null);
       enqueueSnackbar("Tarefa deletada!", { variant: "success" });
       setRefectchTaskStatus(refetchtaskStatus + 1);

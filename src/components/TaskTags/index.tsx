@@ -1,7 +1,7 @@
 import { Box, Chip, IconButton, Tooltip, Input } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { useState } from "react";
-import axios from "axios";
+import { api } from '../../provider/customAxios';
 
 import { TaskTagsProps } from "./TaskTags";
 import { url_add_task_tag } from "../../utils/api";
@@ -35,11 +35,7 @@ const TaskTags = (props: TaskTagsProps) => {
       .replace(":id", taskId.toString())
       .replace(":tag", tag);
     try {
-      await axios.post(custom_task_tag_url, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      await api.post(custom_task_tag_url);
       setRefectchTaskStatus(refetchtaskStatus + 1);
     } catch (err) {
       console.error("erro ao adicionar tag");
@@ -53,11 +49,7 @@ const TaskTags = (props: TaskTagsProps) => {
       .replace(":id", taskId.toString())
       .replace(":tag", tag);
     try {
-      await axios.delete(custom_task_tag_url, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      await api.delete(custom_task_tag_url);
       setRefectchTaskStatus(refetchtaskStatus + 1);
     } catch (err) {
       console.error("erro ao adicionar tag");
@@ -81,7 +73,7 @@ const TaskTags = (props: TaskTagsProps) => {
   return (
     <Box display={"flex"} px={1} pb={2} alignItems={"center"} flexWrap={"wrap"}>
       {task.etiquetas.map((tag) => (
-        <Box pr={1} pb={1}>
+        <Box pr={1} pb={1} key={tag}>
           <Chip
             color="secondary"
             key={tag}
