@@ -4,6 +4,7 @@ import { Box } from "@mui/material";
 import { useState } from "react";
 import { format, formatDistance, formatRelative, subDays,parseISO } from 'date-fns'
 
+import TaskTags from "../TaskTags";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -155,6 +156,7 @@ const Task = (props: TaskProps) => {
 
         </ListItemButton>
       </ListItem>
+      <TaskTags task={task}/>
       <DeleteTaskDialog
         task={task}
         openedDialog={openedDialog}

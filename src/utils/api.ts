@@ -8,3 +8,4 @@ export const url_tasks = `${base_api}/tarefas`;
 export const url_update_task = `${base_api}/tarefas/:id`; 
 export const url_finish_task = `${base_api}/tarefas/:id/concluir`; 
 export const url_reopen_task = `${base_api}/tarefas/:id/reabrir`; 
+export const url_add_task_tag = `${base_api}/tarefas/:id/etiquetas/:tag`; 
