@@ -30,7 +30,7 @@ const ProjectTasks = (props: ProjectTasksProps) => {
   const [projectText, setProjectText] = useState<string>("");
   const [isValidForm, setIsValidForm] = useState<boolean>(false);
 
-  const { setIsLoading, setRefectchTaskStatus, refetchtaskStatus } = useGlobalContext();
+  const { isLoading, setIsLoading, setRefectchTaskStatus, refetchtaskStatus } = useGlobalContext();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -88,7 +88,9 @@ const ProjectTasks = (props: ProjectTasksProps) => {
       enqueueSnackbar("Erro ao criar as tarefas.", { variant: "error" });
 
     }
-    setOpen(false);
+    setSelectedCat(-1);
+    setProjectText("");
+    handleClose();
   };
 
   return (
@@ -143,7 +145,7 @@ const ProjectTasks = (props: ProjectTasksProps) => {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancelar</Button>
-          <Button onClick={createProjectTasks} disabled={isValidForm === false}>
+          <Button onClick={createProjectTasks} disabled={isValidForm === false || isLoading === true}>
             Enviar
           </Button>
         </DialogActions>
