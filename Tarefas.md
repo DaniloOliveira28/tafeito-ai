@@ -52,7 +52,7 @@ PR - Integrar o chatgpt à nossa aplicação
 [x] - Fazer melhorias de ajustes de layout
 
 PR - Melhorar a experiência de deleção
-[] - Ao invés de usar um dialog para confirmaar, usar uma estrategia opt-out, ou seja, permitir o cliente desfazer a ação de deleção.
+[x] - Ao invés de usar um dialog para confirmaar, usar uma estrategia opt-out, ou seja, permitir o cliente desfazer a ação de deleção.
 
 Possíveis PRs
 2) Implementar gestão de anexos
